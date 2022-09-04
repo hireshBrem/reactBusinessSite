@@ -1,15 +1,15 @@
 const nodemailer = require("nodemailer")
 
-var mail = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-      user: process.env.MAIL_FROM,
-      pass: process.env.PASSWORD
-    }
-});
-
 const sendMail =  (req, res) => {
     console.log("req body", req.body);
+    var mail = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+          user: process.env.MAIL_FROM,
+          pass: process.env.PASSWORD
+        }
+    });
+    
     let email = req.body.email
     let message = req.body.message
 

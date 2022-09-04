@@ -15,8 +15,17 @@ import axios from 'axios';
 // }
 
 
-export const sendMail = (data) => {
-    axios.post("http://localhost:3001/api/sendmail", data)
+export const sendMail = async (data) => {
+
+    const axiosConfig = {
+        headers: {
+            'Accepted': 'application/json',
+            'Content-Type': 'application/json;charset=UTF-8'
+        }
+    }
+
+    await axios.post("http://localhost:3001/api/sendmail", data, axiosConfig)
     .then(res=>console.log("Status is " + res.status))
     .catch(err=>console.log(err))
 };
+

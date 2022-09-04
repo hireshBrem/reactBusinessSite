@@ -8,51 +8,6 @@ const Contact = () => {
     document.title = "Ansel Jobs | Contact Us";
   })
   
-  // const sendMail = async () => {
-  //   // setStatus("Sending...")
-    
-  //   var firstName = document.getElementById("fName")
-  //   var lastName = document.getElementById("lName")
-  //   var email = document.getElementById("email")
-  //   var file = document.getElementById("file")
-  //   var message = document.getElementById("message")
-    
-  //   axios({
-  //     method: "POST", 
-  //     url:"http://localhost:3000/send_mail", 
-  //     data: {
-  //         name: firstName,   
-  //         email: email,  
-  //         messsage: message
-  //     }
-  //     }).then((response)=>{
-  //     if (response.data.msg === 'success'){
-  //         alert("Message Sent."); 
-  //     }else if(response.data.msg === 'fail'){
-  //         alert("Message failed to send.")
-  //     }
-  //   })
-
-
-    // let details = {
-    //   firstname: firstName.value,
-    //   lastname: lastName.value,
-    //   email: email.value,
-    //   message: message.value
-    // };
-
-    // let response = await fetch("/send_mail", {
-    //   method: "POST",
-    //   headers: {
-    //     "Content-Type": "application/json;charset=utf-8",
-    //   },
-    //   body: JSON.stringify(details),
-    // });
-    // setStatus("Submit");
-    // let result = await response.json();
-    // alert(result.status);
- //}
-
   const handleSubmit = (e) => {
     e.preventDefault()
         
@@ -61,17 +16,15 @@ const Contact = () => {
     var email = document.getElementById("email").value
     var file = document.getElementById("file")
     var message = document.getElementById("message").value
-    
+
     console.log("values email ", email)
     console.log("values message", message)
     
-    sendMail({email, message}).then(data=>{
-      if(data.err) {
-        console.log(data.err)
-      }else{
-        console.log("Success!", data)
-      }
-    }).catch(error=>{console.log(error)})
+    sendMail({email, message})
+    // .then(data=>{
+    //   console.log(data)
+    // }).catch(error=>{console.log(error)})
+    
   }
 
   return (
